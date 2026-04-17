@@ -55,7 +55,6 @@ func (x *PaymentRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use PaymentRequest.ProtoReflect.Descriptor instead.
 func (*PaymentRequest) Descriptor() ([]byte, []int) {
 	return file_order_payment_proto_rawDescGZIP(), []int{0}
 }
@@ -80,6 +79,7 @@ type PaymentResponse struct {
 	Status        string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
+	Amount        int64
 }
 
 func (x *PaymentResponse) Reset() {
@@ -107,7 +107,6 @@ func (x *PaymentResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use PaymentResponse.ProtoReflect.Descriptor instead.
 func (*PaymentResponse) Descriptor() ([]byte, []int) {
 	return file_order_payment_proto_rawDescGZIP(), []int{1}
 }
@@ -132,6 +131,7 @@ type ListPaymentsRequest struct {
 	MaxAmount     int64                  `protobuf:"varint,2,opt,name=max_amount,json=maxAmount,proto3" json:"max_amount,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
+	Amount        int64
 }
 
 func (x *ListPaymentsRequest) Reset() {
@@ -159,9 +159,8 @@ func (x *ListPaymentsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ListPaymentsRequest.ProtoReflect.Descriptor instead.
 func (*ListPaymentsRequest) Descriptor() ([]byte, []int) {
-	return file_order_payment_proto_rawDescGZIP(), []int{2}
+	return file_order_payment_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ListPaymentsRequest) GetMinAmount() int64 {
@@ -174,6 +173,12 @@ func (x *ListPaymentsRequest) GetMinAmount() int64 {
 func (x *ListPaymentsRequest) GetMaxAmount() int64 {
 	if x != nil {
 		return x.MaxAmount
+	}
+	return 0
+}
+func (x *ListPaymentsRequest) GetAmount() int64 {
+	if x != nil {
+		return x.Amount
 	}
 	return 0
 }
