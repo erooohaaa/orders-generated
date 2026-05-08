@@ -55,6 +55,7 @@ func (x *PaymentRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use PaymentRequest.ProtoReflect.Descriptor instead.
 func (*PaymentRequest) Descriptor() ([]byte, []int) {
 	return file_order_payment_proto_rawDescGZIP(), []int{0}
 }
@@ -77,7 +78,7 @@ type PaymentResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	TransactionId string                 `protobuf:"bytes,1,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
 	Status        string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
-	Amount        string                 `protobuf:"bytes,3,opt,name=amount,proto3" json:"amount,omitempty"`
+	Amount        int64                  `protobuf:"varint,3,opt,name=amount,proto3" json:"amount,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -107,6 +108,7 @@ func (x *PaymentResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use PaymentResponse.ProtoReflect.Descriptor instead.
 func (*PaymentResponse) Descriptor() ([]byte, []int) {
 	return file_order_payment_proto_rawDescGZIP(), []int{1}
 }
@@ -125,11 +127,11 @@ func (x *PaymentResponse) GetStatus() string {
 	return ""
 }
 
-func (x *PaymentResponse) GetAmount() string {
+func (x *PaymentResponse) GetAmount() int64 {
 	if x != nil {
 		return x.Amount
 	}
-	return ""
+	return 0
 }
 
 type ListPaymentsRequest struct {
@@ -165,8 +167,9 @@ func (x *ListPaymentsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use ListPaymentsRequest.ProtoReflect.Descriptor instead.
 func (*ListPaymentsRequest) Descriptor() ([]byte, []int) {
-	return file_order_payment_proto_rawDescGZIP(), []int{3}
+	return file_order_payment_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ListPaymentsRequest) GetMinAmount() int64 {
@@ -342,7 +345,7 @@ const file_order_payment_proto_rawDesc = "" +
 	"\x0fPaymentResponse\x12%\n" +
 	"\x0etransaction_id\x18\x01 \x01(\tR\rtransactionId\x12\x16\n" +
 	"\x06status\x18\x02 \x01(\tR\x06status\x12\x16\n" +
-	"\x06amount\x18\x03 \x01(\tR\x06amount\"S\n" +
+	"\x06amount\x18\x03 \x01(\x03R\x06amount\"S\n" +
 	"\x13ListPaymentsRequest\x12\x1d\n" +
 	"\n" +
 	"min_amount\x18\x01 \x01(\x03R\tminAmount\x12\x1d\n" +
