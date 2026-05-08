@@ -80,7 +80,6 @@ type PaymentResponse struct {
 	Amount        string                 `protobuf:"bytes,3,opt,name=amount,proto3" json:"amount,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
-	Amount        int64
 }
 
 func (x *PaymentResponse) Reset() {
@@ -139,7 +138,6 @@ type ListPaymentsRequest struct {
 	MaxAmount     int64                  `protobuf:"varint,2,opt,name=max_amount,json=maxAmount,proto3" json:"max_amount,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
-	Amount        int64
 }
 
 func (x *ListPaymentsRequest) Reset() {
@@ -181,12 +179,6 @@ func (x *ListPaymentsRequest) GetMinAmount() int64 {
 func (x *ListPaymentsRequest) GetMaxAmount() int64 {
 	if x != nil {
 		return x.MaxAmount
-	}
-	return 0
-}
-func (x *ListPaymentsRequest) GetAmount() int64 {
-	if x != nil {
-		return x.Amount
 	}
 	return 0
 }

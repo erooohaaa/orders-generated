@@ -1,4 +1,4 @@
-module orders-generated
+module github.com/erooohaaa/orders-generated
 
 go 1.25.0
 
